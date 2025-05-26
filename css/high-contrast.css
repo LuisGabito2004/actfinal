@@ -1,0 +1,58 @@
+@import url('styles.css');
+ .high-contrast {
+    --primary-color: #000000 !important;
+    --secondary-color: #ffff00 !important;
+    --text-color: #ffffff !important;
+    --bg-color: #000000 !important;
+    --link-color: #ffff00 !important;
+    --visited-color: #ffa500 !important;
+}
+
+.high-contrast body {
+    background-color: var(--bg-color) !important;
+    color: var(--text-color) !important;
+}
+
+.high-contrast header,
+.high-contrast footer {
+    background-color: var(--primary-color) !important;
+    border: 3px solid var(--secondary-color) !important;
+}
+
+.high-contrast a {
+    color: var(--link-color) !important;
+    text-decoration: underline !important;
+    font-weight: bold !important;
+}
+
+.high-contrast a:visited {
+    color: var(--visited-color) !important;
+}
+
+.high-contrast button,
+.high-contrast input,
+.high-contrast textarea {
+    border: 2px solid var(--secondary-color) !important;
+    background-color: var(--primary-color) !important;
+    color: var(--text-color) !important;
+}
+
+.high-contrast .accessibility-panel {
+    background-color: var(--primary-color) !important;
+    border: 3px solid var(--secondary-color) !important;
+}
+
+.high-contrast.protanopia {
+    --secondary-color: #00b4ff !important;
+    --link-color: #00b4ff !important;
+}
+
+.high-contrast.deuteranopia {
+    --secondary-color: #ff00ff !important;
+    --link-color: #ff00ff !important;
+}
+
+.high-contrast.tritanopia {
+    --secondary-color: #ff0000 !important;
+    --link-color: #ff0000 !important;
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | Energías Renovables</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/dark-mode.css">
+    <link rel="stylesheet" href="css/dyslexia-mode.css">
+    <link rel="stylesheet" href="css/high-contrast.css">
+    <link rel="stylesheet" href="css/accessibility.css" id="accessibility-style">
+</head>
+<body>
+    <header>
+        <h1>Energías Renovables</h1>
+        <nav aria-label="Navegación principal">
+            <ul>
+                <li><a href="welcome.html" aria-current="page">Inicio</a></li>
+                <li><a href="energias-renovables.html">Tipos de Energía</a></li>
+                <li><a href="ods7.html">ODS 7</a></li>
+                <li><a href="cv.html">Mi CV</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <form action="send-mail.php" method="POST" id="contact-form" class="formulario">
+            <h2>Contáctame</h2>
+        
+            <div class="form-group">
+              <label for="nombre">Nombre completo:</label>
+              <input type="text" id="nombre" name="nombre" required aria-required="true">
+            </div>
+        
+            <div class="form-group">
+              <label for="email">Correo electrónico:</label>
+              <input type="email" id="email" name="email" required aria-required="true">
+            </div>
+        
+            <div class="form-group">
+              <label for="mensaje">Mensaje:</label>
+              <textarea id="mensaje" name="mensaje" rows="5" required aria-required="true"></textarea>
+            </div>
+        
+            <button class="enviar" type="submit">Enviar mensaje</button>
+          </form>
+    </main>
+
+    <footer>
+        <div class="accessibility-panel">
+            <button id="font-increase">A+</button>
+            <button id="font-decrease">A-</button>
+            <button id="font-reset">A</button>
+            <button id="toggle-dark">Modo Oscuro</button>
+            <button id="toggle-contrast">Alto Contraste</button>
+            <button id="toggle-dyslexia">Modo Dislexia</button>
+            <select id="daltonismo-selector" aria-label="Selector de modo para daltonismo">
+                <option value="none">Color normal</option>
+                <option value="protanopia">Protanopia</option>
+                <option value="deuteranopia">Deuteranopia</option>
+                <option value="tritanopia">Tritanopia</option>
+            </select>
+        </div>
+        <p>&copy; 2025 Ramirez Campos</p>
+    </footer>
+    <script src="js/accessibility.js"></script>
+</body>
+</html>

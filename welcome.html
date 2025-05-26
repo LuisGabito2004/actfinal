@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energías Renovables | ODS 7</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/dark-mode.css">
+    <link rel="stylesheet" href="css/dyslexia-mode.css">
+    <link rel="stylesheet" href="css/high-contrast.css">
+    <link rel="stylesheet" href="css/accessibility.css" id="accessibility-style">
+</head>
+<body>
+    <header>
+        <h1>Energías Renovables</h1>
+        <nav aria-label="Navegación principal">
+            <ul>
+                <li><a href="welcome.html" aria-current="page">Inicio</a></li>
+                <li><a href="energias-renovables.html">Tipos de Energía</a></li>
+                <li><a href="ods7.html">ODS 7</a></li>
+                <li><a href="cv.html">Mi CV</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="Welcome" aria-labelledby="bienvenida">
+            <h2 id="bienvenida">Bienvenido al futuro energético</h2>
+            <img src="assets/images/panelsolar.jpg" alt="Paneles solares en un campo" class="content-image">
+            <p>El futuro de las energías renovables se perfila como uno de los pilares fundamentales para el desarrollo sostenible del planeta. A medida que los recursos fósiles se agotan y los efectos del cambio climático se intensifican, las fuentes limpias como la solar, eólica, hidroeléctrica y geotérmica emergen como alternativas viables y necesarias. Gracias a los avances tecnológicos y a un creciente compromiso global por reducir las emisiones de carbono, las energías renovables no solo representan una solución ecológica, sino también una oportunidad económica y social para transformar la forma en que producimos y consumimos energía.</p>
+        </section>
+        <section class="earth"> 
+            <img src="assets/images/mundosolar.jpg" alt="Paneles solares en el planeta" class="content-image2">
+        </section>
+    </main>
+
+    <footer>
+        <div class="accessibility-panel">
+            <button id="font-increase">A+</button>
+            <button id="font-decrease">A-</button>
+            <button id="font-reset">A</button>
+            <button id="toggle-dark">Modo Oscuro</button>
+            <button id="toggle-contrast">Alto Contraste</button>
+            <button id="toggle-dyslexia">Modo Dislexia</button>
+            <select id="daltonismo-selector" aria-label="Selector de modo para daltonismo">
+                <option value="none">Color normal</option>
+                <option value="protanopia">Protanopia</option>
+                <option value="deuteranopia">Deuteranopia</option>
+                <option value="tritanopia">Tritanopia</option>
+            </select>
+        </div>
+        <p>&copy; 2025 Ramirez Campos</p>
+    </footer>
+
+    <script src="js/accessibility.js"></script>
+</body>
+</html>

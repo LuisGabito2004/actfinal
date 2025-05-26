@@ -1,0 +1,54 @@
+@import url('styles.css');
+ @font-face {
+    font-family: 'OpenDyslexic';
+    src: url('../fonts/OpenDyslexic-Regular.woff2') format('woff2'),
+         url('../fonts/OpenDyslexic-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.dyslexia-mode {
+    --font-main: 'OpenDyslexic', Arial, sans-serif !important;
+    --line-height: 1.8 !important;
+    --letter-spacing: 0.1em !important;
+    --word-spacing: 0.3em !important;
+}
+
+.dyslexia-mode body {
+    font-family: var(--font-main) !important;
+    line-height: var(--line-height) !important;
+    letter-spacing: var(--letter-spacing) !important;
+    word-spacing: var(--word-spacing) !important;
+}
+
+.dyslexia-mode p,
+.dyslexia-mode li,
+.dyslexia-mode article {
+    text-align: justify !important;
+    max-width: 70ch !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.dyslexia-mode h1,
+.dyslexia-mode h2,
+.dyslexia-mode h3 {
+    font-weight: bold !important;
+    color: #0000cc !important; /* Azul oscuro para mejor contraste */
+}
+
+.dyslexia-mode a {
+    text-decoration: underline !important;
+    color: #cc0000 !important; /* Rojo oscuro para mejor visibilidad */
+}
+
+/* Mejora para listas */
+.dyslexia-mode ul,
+.dyslexia-mode ol {
+    padding-left: 2em !important;
+}
+
+.dyslexia-mode li {
+    margin-bottom: 0.5em !important;
+    list-style-type: square !important;
+}
