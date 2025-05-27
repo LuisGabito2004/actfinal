@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto | Energías Renovables</title>
+    <title>Energías Renovables | ODS 7</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/dark-mode.css">
     <link rel="stylesheet" href="css/dyslexia-mode.css">
@@ -25,39 +25,39 @@
     </header>
     
     <main>
-        <form action="send-mail.php" method="POST" id="contact-form" class="formulario">
-            <h2>Contáctame</h2>
-        
-            <div class="form-group">
-              <label for="nombre">Nombre completo:</label>
-              <input type="text" id="nombre" name="nombre" required aria-required="true">
-            </div>
-        
-            <div class="form-group">
-              <label for="email">Correo electrónico:</label>
-              <input type="email" id="email" name="email" required aria-required="true">
-            </div>
-        
-            <div class="form-group">
-              <label for="mensaje">Mensaje:</label>
-              <textarea id="mensaje" name="mensaje" rows="5" required aria-required="true"></textarea>
-            </div>
-            
-            <div class="form-group">
-                <label for="captcha">
-                    Verificación: Ingresa estas letras 
-                    <span id="captcha-letters" style="font-weight: bold; color: #2e7d32;"></span>
-                    <button id="refresh-captcha" aria-label="Generar nuevas letras" style="background: none; border: none; cursor: pointer;">↻</button>
-                </label>
-                <input type="text" id="captcha" name="captcha" required aria-required="true" pattern="[A-Za-z]{4}">
-                <input type="hidden" id="expected-captcha" name="expected_captcha" value=""> 
-                <small id="captcha-error" class="error-message" style="color:red; display:none;">Las letras no coinciden</small>
-            </div>
-
-            <div id="form-messages" style="display:none; margin:15px 0; padding:10px; border-radius:5px;"></div>
-
-            <button class="enviar" type="submit">Enviar mensaje</button>
-          </form>
+        <section class="curri" aria-labelledby="bienvenida">
+           <div>
+              <img src="assets/images/mifoto.jpeg" alt="Paneles solares en un campo" class="content-image3">
+           </div>
+           <div>
+            <h1>Datos Personales</h1>
+            <ul>
+                <li>Nombre: Luis Gabriel Ramírez Campos</li>
+                <li>Edad Actual: 21 Años</li>
+                <li>Hombre</li>
+            </ul>
+           </div>
+           <div>
+            <h1>Educación</h1> 
+            <ul>
+            <li>Actualmente estudiando Ingeniería de Software en UDC</li>
+            </ul>
+           </div>
+           <div>
+            <h1>Idiomas</h1>
+            <ul>
+                <li>Español</li>
+                <li>Inglés B2</li>
+            </ul>
+           </div>
+           <div>
+            <h1>Hobby's</h1>
+            <ul>
+                <li>Animación Digital</li>
+                <li>Dibujo Digital</li>
+            </ul>
+           </div>
+        </section>
     </main>
 
     <footer>
@@ -77,7 +77,7 @@
         </div>
         <p>&copy; 2025 Ramirez Campos</p>
     </footer>
+
     <script src="js/accessibility.js"></script>
-    <script src="js/form-validation.js"></script>
 </body>
 </html>

@@ -16,3 +16,7 @@
 .dark-mode nav a {
     color: #bbdefb;
 }
+
+.dark-mode .energias div{
+    background-color: #2e7d32;
+}
