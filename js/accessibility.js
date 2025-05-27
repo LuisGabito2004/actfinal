@@ -60,9 +60,31 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     document.getElementById('toggle-images').addEventListener('click', function() {
-        const images = document.querySelectorAll('img');
-        images.forEach(img => {
-            img.classList.toggle('hidden');
-        });
+        document.body.classList.toggle('hidden-images');
+        localStorage.setItem('imagesHidden', document.body.classList.contains('hidden-images'));
     });
+
+    document.getElementById('toggle-links').addEventListener('click', function() {
+        document.body.classList.toggle('highlight-links');
+        localStorage.setItem('linksHighlighted', document.body.classList.contains('highlight-links'));
+    });
+
+    document.getElementById('font-selector').addEventListener('change', function(e) {
+        document.body.style.fontFamily = e.target.value;
+        localStorage.setItem('selectedFont', e.target.value);
+    });
+
+    if (localStorage.getItem('imagesHidden') === 'true') {
+        document.body.classList.add('hidden-images');
+    }
+
+    if (localStorage.getItem('linksHighlighted') === 'true') {
+        document.body.classList.add('highlight-links');
+    }
+
+    const savedFont = localStorage.getItem('selectedFont');
+    if (savedFont) {
+        document.body.style.fontFamily = savedFont;
+        document.getElementById('font-selector').value = savedFont;
+    }
 });

@@ -64,9 +64,31 @@ main {
     flex-wrap: wrap;
 }
 
-.accessibility-panel button {
-    padding: 5px 10px;
+.accessibility-panel button,
+.accessibility-panel select {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: white;
     cursor: pointer;
+}
+
+.hidden-images img {
+    display: none !important;
+}
+
+.highlight-links a {
+    outline: 3px solid #ff0 !important;
+    background-color: rgba(255, 255, 0, 0.2) !important;
+    padding: 2px;
+    border-radius: 3px;
+    text-decoration: underline wavy !important;
+}
+
+@font-face {
+    font-family: 'OpenDyslexic';
+    src: url('../fonts/OpenDyslexic-Regular.woff2') format('woff2'),
+         url('../fonts/OpenDyslexic-Regular.woff') format('woff');
 }
 
 header, footer {
