@@ -101,8 +101,13 @@
     <script src="js/accessibility.js"></script>
     
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('contact-form');
+            const submitBtn = document.getElementById('submit-btn');
+            const formMessage = document.getElementById('form-message');
+            
             // Generador de CAPTCHA
-            document.addEventListener('DOMContentLoaded', function() {
+            function generateCaptcha() {
                 const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
                 let captcha = '';
                 for(let i = 0; i < 4; i++) {
@@ -110,67 +115,76 @@
                 }
                 document.getElementById('captcha-text').textContent = captcha;
                 document.getElementById('captcha-value').value = captcha;
-            });
-
-            form.addEventListener('submit', async function(e) {
+                return captcha;
+            }
+            
+            generateCaptcha();
+            
+            // Manejar envío
+            form.addEventListener('submit', function(e) {
                 e.preventDefault();
                 
                 // Validar CAPTCHA
                 const userInput = form.querySelector('[name="captcha"]').value;
                 const captchaValue = document.getElementById('captcha-value').value;
                 
-                if(userInput !== captchaValue) {
-                showMessage('Las letras de verificación no coinciden', 'error');
-                generateCaptcha();
-                return;
+                if(userInput.toUpperCase() !== captchaValue.toUpperCase()) {
+                    showMessage('Las letras de verificación no coinciden', 'error');
+                    generateCaptcha();
+                    return false; // Detener el envío
                 }
                 
-                // Deshabilitar botón para evitar múltiples envíos
+                // Deshabilitar botón
                 submitBtn.disabled = true;
                 submitBtn.textContent = 'Enviando...';
                 
-                try {
-                // Enviar con AJAX
-                const formData = new FormData(form);
+                // Crear un nuevo FormData para Netlify
+                const netlifyFormData = new FormData();
                 
-                const response = await fetch('/', {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                    'Accept': 'application/json'
+                // Copiar todos los campos excepto el CAPTCHA visual
+                form.querySelectorAll('input, textarea').forEach(field => {
+                    if(field.name !== 'captcha') { // Excluir el campo CAPTCHA que ve el usuario
+                        netlifyFormData.append(field.name, field.value);
                     }
                 });
                 
-                if(response.ok) {
-                    showMessage('Mensaje enviado con éxito', 'success');
-                    form.reset();
-                    generateCaptcha();
-                } else {
-                    throw new Error('Error en el servidor');
-                }
-                } catch (error) {
-                showMessage('Error al enviar. Por favor intenta nuevamente.', 'error');
-                console.error('Error:', error);
-                } finally {
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Enviar';
-                }
+                // Enviar con AJAX
+                fetch('/', {
+                    method: 'POST',
+                    body: netlifyFormData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if(response.ok) {
+                        showMessage('Mensaje enviado con éxito', 'success');
+                        form.reset();
+                        generateCaptcha();
+                    } else {
+                        throw new Error('Error en el servidor');
+                    }
+                })
+                .catch(error => {
+                    showMessage('Error al enviar. Por favor intenta nuevamente.', 'error');
+                    console.error('Error:', error);
+                })
+                .finally(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Enviar';
+                });
             });
             
-            // Mostrar mensajes de estado
             function showMessage(text, type) {
                 formMessage.textContent = text;
                 formMessage.style.display = 'block';
-                formMessage.style.color = type === 'success' ? '#2e7d32' : '#d32f2f';
-                formMessage.style.backgroundColor = type === 'success' ? '#e8f5e9' : '#ffebee';
-                formMessage.style.padding = '10px';
-                formMessage.style.margin = '10px 0';
-                formMessage.style.borderRadius = '4px';
+                formMessage.className = type + '-message';
                 
                 setTimeout(() => {
-                formMessage.style.display = 'none';
+                    formMessage.style.display = 'none';
                 }, 5000);
             }
-    </script>
+        });
+</script>
 </body>
 </html>
