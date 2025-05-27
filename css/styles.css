@@ -20,28 +20,19 @@ body {
     flex: 1;
     padding: var(--spacing);
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 20px;
     width: 100%;
 }
 
 
-.welcome-section, .earth-section {
+.Welcome, .earth {
     margin-bottom: 2rem;
 }
 
-.section-title {
-    margin-bottom: 1rem;
-    color: var(--primary-color);
-}
-
-.image-container, .earth-image-container {
-    margin: 1rem 0;
-    overflow: hidden;
-    border-radius: var(--border-radius);
-}
 
 .content-image, .content-image2 {
-    width: 100%;
+    width: 40%;
+    height: 50%;
     height: auto;
     display: block;
     transition: transform 0.3s ease;
