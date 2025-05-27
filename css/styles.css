@@ -27,6 +27,8 @@ body {
 
 .Welcome, .earth {
     margin-bottom: 2rem;
+    width: 50%;
+    display: flex;
 }
 
 
