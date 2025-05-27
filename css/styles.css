@@ -20,32 +20,80 @@ body {
     flex: 1;
     padding: var(--spacing);
     max-width: 1200px;
-    margin: 20px;
-    width: 100%;
+    margin: 20px auto; /* Centrado con margen */
+    width: calc(100% - 40px); /* Resta los márgenes laterales */
 }
 
+/* Contenedor flexible para las dos secciones */
+.sections-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se apilen en móviles */
+    gap: 2rem; /* Espacio entre secciones */
+}
 
+/* Estilos para ambas secciones */
 .Welcome, .earth {
     margin-bottom: 2rem;
-    width: 50%;
     display: flex;
+    flex-direction: column;
 }
 
+/* Disposición en pantallas grandes (>= 768px) */
+@media (min-width: 768px) {
+    .Welcome, .earth {
+        width: calc(50% - 1rem); /* 50% del ancho menos la mitad del gap */
+    }
+    
+    .Welcome {
+        padding-right: 1rem; /* Espacio adicional entre columnas */
+    }
+    
+    .earth {
+        padding-left: 1rem; /* Espacio adicional entre columnas */
+    }
+}
 
+/* Disposición en pantallas pequeñas (< 768px) */
+@media (max-width: 767px) {
+    .Welcome, .earth {
+        width: 100%; /* Ocupan todo el ancho */
+    }
+}
+
+/* Estilos para las imágenes */
 .content-image, .content-image2 {
-    width: 40%;
-    height: 50%;
-    height: auto;
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 100%; /* Evita que se salga del contenedor */
+    height: auto; /* Mantiene la proporción */
     display: block;
     transition: transform 0.3s ease;
+    border-radius: 8px; /* Bordes redondeados */
+    margin-bottom: 1rem; /* Espacio debajo de la imagen */
 }
 
 .content-image:hover, .content-image2:hover {
     transform: scale(1.02);
 }
 
+/* Contenido de texto */
 .text-content {
     padding: 0.5rem;
+    flex-grow: 1; /* Permite que el texto ocupe el espacio disponible */
+}
+
+/* Ajustes adicionales para mejor visualización */
+.Welcome {
+    align-items: flex-start;
+}
+
+.earth {
+    align-items: flex-end;
+}
+
+@media (max-width: 767px) {
+    .Welcome, .earth {
+        align-items: center; /* Centrado en móviles */
+    }
 }
 
 /* Controles de accesibilidad */
