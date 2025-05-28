@@ -19,6 +19,10 @@
     border: 3px solid var(--secondary-color) !important;
 }
 
+.high-contrast .curri h1, .high-contrast .curri li {
+    color: #000000;
+}
+
 .high-contrast a {
     color: var(--link-color) !important;
     text-decoration: underline !important;
